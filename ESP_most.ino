@@ -87,7 +87,8 @@ void handleRoot() {
 }
 
 void handleMostDown() {
-    digitalWrite(MOTOR_L_PIN, 1000);
+    analogWrite(MOTOR_L_PIN, 1000);
+    analogWrite(MOTOR_R_PIN, 0);
     // This will be non-blocking in the real world. Need additional checks for motoroff request.
   // analogWrite(MOTOR_L_PIN, 0);
   handleRoot();  // Redirect back to the main page
@@ -95,6 +96,7 @@ void handleMostDown() {
 
 void handleMostUp() {
     analogWrite(MOTOR_R_PIN, 1000);
+    analogWrite(MOTOR_L_PIN, 0);
     // This will be non-blocking in the real world. Need additional checks for motoroff request.
   // analogWrite(MOTOR_R_PIN, 0);
   handleRoot();  // Redirect back to the main page
